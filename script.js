@@ -38,7 +38,7 @@ let timer = setInterval(function () {
     "</div>sekunder</div> \
 </div>";
 
-  if (hours === 1 && minutes == 35 && seconds === 0) {
+  if (hours === 0 && minutes == 0 && seconds === 0) {
     clearInterval(timer);
     remove();
     atZero();
