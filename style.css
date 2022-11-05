@@ -237,3 +237,33 @@ footer a {
 footer a:hover {
   color: #276fbf;
 }
+
+@keyframes append-animate {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* animate new box */
+.gifContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: append-animate 0.3s linear;
+}
+
+.gif {
+  height: auto;
+  max-width: 100%;
+}
+
+.midlerKnapp {
+  width: 50px;
+  height: 50px;
+}

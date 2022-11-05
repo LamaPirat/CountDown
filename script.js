@@ -1,6 +1,6 @@
 const year = new Date().getFullYear();
-const fourthOfJuly = new Date(year, 6, 4).getTime();
-const fourthOfJulyNextYear = new Date(year + 1, 6, 4).getTime();
+const fourthOfJuly = new Date(year, 11, 4).getTime();
+const fourthOfJulyNextYear = new Date(year + 1, 11, 4).getTime();
 const month = new Date().getMonth();
 
 // countdown
@@ -10,7 +10,7 @@ let timer = setInterval(function () {
 
   // get the difference
   let diff;
-  if (month > 6) {
+  if (month > 11) {
     diff = fourthOfJulyNextYear - today;
   } else {
     diff = fourthOfJuly - today;
@@ -37,4 +37,37 @@ let timer = setInterval(function () {
     seconds +
     "</div>sekunder</div> \
 </div>";
+
+  if (hours === 0 && minutes == 0 && seconds === 0) {
+    clearInterval(timer);
+    remove();
+    atZero();
+  }
 }, 1000);
+
+function remove() {
+  const myNode = document.querySelector("body");
+  while (myNode.lastElementChild) {
+    myNode.removeChild(myNode.lastElementChild);
+  }
+}
+
+function atZero() {
+  const gifContainer = document.createElement("div");
+  const gif = document.createElement("img");
+  gif.classList = "gif";
+  gif.style.height = "auto;";
+  gif.style.maxWidth = "100%";
+  gif.src = "resources/happy-birthday.gif";
+  gifContainer.appendChild(gif);
+  gifContainer.classList.add("gifContainer");
+  document.body.appendChild(gifContainer);
+
+  var sound = document.createElement("audio");
+  sound.id = "audio-player";
+  sound.controls = "controls";
+  sound.autoplay = true;
+  sound.type = "audio/mp3";
+  sound.src = "resources/song.mp3";
+  sound.play();
+}
