@@ -38,7 +38,7 @@ let timer = setInterval(function () {
     "</div>sekunder</div> \
 </div>";
 
-  if (hours === 0 && minutes == 0 && seconds === 0) {
+  if (hours === 1 && minutes == 35 && seconds === 0) {
     clearInterval(timer);
     remove();
     atZero();
@@ -69,5 +69,11 @@ function atZero() {
   sound.autoplay = true;
   sound.type = "audio/mp3";
   sound.src = "resources/song.mp3";
-  sound.play();
+  sound.addEventListener(
+    "load",
+    function () {
+      sound.play();
+    },
+    true
+  );
 }
